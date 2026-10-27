@@ -17,8 +17,8 @@ const courseGroups = Object.entries(TRACKS).map(([track, label]) => ({
 }));
 
 export default defineConfig({
-  // Адреса тимчасова: зміниться, коли буде створено організацію на GitHub або підключено домен.
-  site: 'https://ra97academy.github.io',
+  // Адреса сайту на GitHub Pages; зміниться, якщо буде підключено власний домен.
+  site: 'https://roboticsacademy97.github.io',
   trailingSlash: 'always',
   integrations: [
     starlight({
