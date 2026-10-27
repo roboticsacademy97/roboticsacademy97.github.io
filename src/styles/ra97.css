@@ -1,0 +1,63 @@
+/* RA97: токени айдентики для Starlight. Джерело — брендбук RA97 (27.10.2026).
+   Шрифти підключено локально через @fontsource (astro.config.mjs), без Google Fonts: сайт працює офлайн. */
+
+:root {
+  --ra-graphite: #1F1E1D;
+  --ra-signal: #F45300;          /* графіка, великі плашки; текст лише від 24px на світлому */
+  --ra-signal-text: #C84300;     /* помаранчевий текст і посилання на світлому (4.93:1) */
+  --ra-surface: #F6F5F3;
+  --ra-chamfer-sm: 8px; --ra-chamfer-md: 16px; --ra-chamfer-lg: 32px;
+  --ra-font-display: "Russo One", "Manrope Variable", system-ui, sans-serif;
+  --sl-font: "Manrope Variable", system-ui, sans-serif;
+  --sl-font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+
+/* Темна тема (у Starlight вона базова) */
+:root {
+  --sl-color-accent-low: #3A1A08;
+  --sl-color-accent: #F45300;
+  --sl-color-accent-high: #FFC7A8;
+  --sl-color-white: #F3F1EE;
+  --sl-color-gray-1: #E6E2DD; --sl-color-gray-2: #C9C3BC; --sl-color-gray-3: #A8A29C;
+  --sl-color-gray-4: #66615C; --sl-color-gray-5: #3A3734; --sl-color-gray-6: #22201F;
+  --sl-color-black: #161514;
+}
+
+/* Світла тема */
+:root[data-theme="light"] {
+  --sl-color-accent-low: #FFE3D3;
+  --sl-color-accent: #C84300;
+  --sl-color-accent-high: #5A1F00;
+  --sl-color-white: #1F1E1D;
+  --sl-color-gray-1: #2B2927; --sl-color-gray-2: #3A3734; --sl-color-gray-3: #66615C;
+  --sl-color-gray-4: #8E8882; --sl-color-gray-5: #DEDAD5; --sl-color-gray-6: #F6F5F3; --sl-color-gray-7: #FBFAF9;
+  --sl-color-black: #FFFFFF;
+}
+
+/* Russo One має лише вагу 400: фальшивий bold не вмикаємо */
+h1, h2, h3, .site-title, .ra-display {
+  font-family: var(--ra-font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  font-synthesis: none;
+}
+
+.ra-chamfer { clip-path: polygon(0 0, calc(100% - var(--ra-chamfer-md)) 0, 100% var(--ra-chamfer-md), 100% 100%, 0 100%); }
+
+/* Коди модулів і курсів — моноширинним, щоб ПРГ1 і МАТ1.2 читались як ідентифікатори */
+.ra-code { font-family: var(--sl-font-mono); font-size: 0.9em; white-space: nowrap; }
+
+/* Широкі таблиці програми прокручуються всередині, а не ламають сторінку на телефоні */
+.ra-table-wrap { overflow-x: auto; }
+.ra-table-wrap table { font-size: var(--sl-text-sm); }
+.ra-table-wrap td, .ra-table-wrap th { vertical-align: top; }
+.ra-empty { color: var(--sl-color-gray-4); }
+
+.ra-nowrap { white-space: nowrap; }
+
+/* Головна кнопка в темній темі — сигнальний помаранчевий з графітовим текстом, як на борді */
+:root:not([data-theme="light"]) .sl-link-button.primary {
+  background: var(--ra-signal);
+  border-color: var(--ra-signal);
+  color: var(--ra-graphite);
+}

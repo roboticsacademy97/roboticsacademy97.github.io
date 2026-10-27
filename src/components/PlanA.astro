@@ -1,0 +1,38 @@
+---
+// Повний шлях (варіант А): part="common" — рік 0 і слот Ф для всіх, part="roles" — слот Т кожної ролі.
+import { parse } from 'yaml';
+import planText from '../data/plan-a.yaml?raw';
+import ModuleCode from './ModuleCode.astro';
+
+interface Props { part: 'common' | 'roles' }
+const { part } = Astro.props;
+
+type Row = (string | null)[];
+const plan = parse(planText) as {
+  year0: { first: Row; second: Row };
+  fundament: Record<number, Row>;
+  roles: Record<string, { name: string; years: Record<number, Row> }>;
+};
+const BLOCKS = [1, 2, 3, 4, 5, 6];
+const common: [string, Row][] = [
+  ['0 · перший', plan.year0.first],
+  ['0 · другий', plan.year0.second],
+  ['1 · Ф', plan.fundament[1]],
+  ['2 · Ф', plan.fundament[2]],
+  ['3 · Ф', plan.fundament[3]],
+];
+const roles: [string, Row][] = Object.values(plan.roles).flatMap((r) =>
+  [1, 2, 3].map((y) => [`${r.name} · ${y}`, r.years[y]] as [string, Row]),
+);
+const [corner, rows] = part === 'common' ? ['Рік · слот', common] : ['Роль · рік', roles];
+---
+<div class="ra-table-wrap">
+  <table>
+    <thead><tr><th>{corner}</th>{BLOCKS.map((b) => <th>Блок {b}</th>)}</tr></thead>
+    <tbody>
+      {rows.map(([label, row]) => (
+        <tr><th scope="row">{label}</th>{row.map((c) => <td>{c === 'СТУДІЯ' ? 'Студія' : <ModuleCode code={c} />}</td>)}</tr>
+      ))}
+    </tbody>
+  </table>
+</div>

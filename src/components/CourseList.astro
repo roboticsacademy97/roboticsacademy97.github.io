@@ -1,0 +1,30 @@
+---
+// Курси одного треку: кількість модулів, роки, стан паспорта. Заголовок треку — у сторінці, щоб потрапив у зміст.
+import { getProgram } from '../lib/program';
+
+interface Props { track: string }
+const { track } = Astro.props;
+const { courses, modulesOf } = await getProgram();
+const years = (slug: string) => {
+  const ys = [...new Set(modulesOf(courses.find((c) => c.slug === slug)!).map((m) => m.year.replace('–', ',')))]
+    .flatMap((y) => y.split(','));
+  const nums = [...new Set(ys.map(Number))].sort();
+  return nums.length > 1 ? `${nums[0]}–${nums.at(-1)}` : `${nums[0]}`;
+};
+---
+<div class="ra-table-wrap">
+  <table>
+    <thead><tr><th>Код</th><th>Курс</th><th>Модулів</th><th>Роки</th><th>Паспорт</th></tr></thead>
+    <tbody>
+      {courses.filter((c) => c.track === track).map((c) => (
+        <tr>
+          <td><span class="ra-code">{c.code}</span></td>
+          <td><a href={`/kursy/${c.slug}/`}>{c.name}</a></td>
+          <td>{c.modules.length}</td>
+          <td>{years(c.slug)}</td>
+          <td>{c.passport ?? <span class="ra-empty">пишеться</span>}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
