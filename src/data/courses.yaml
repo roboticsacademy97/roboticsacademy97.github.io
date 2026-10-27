@@ -1,0 +1,152 @@
+- code: БЕЗ
+  slug: bez
+  name: Безпека в майстерні
+  track: fundament
+  modules:
+  - БЕЗ
+- code: ІНС
+  slug: ins
+  name: Інструменти інженера
+  track: fundament
+  modules:
+  - ІНС1
+  - ІНС2
+- code: ПРГ
+  slug: prg
+  name: Програмування
+  track: fundament
+  modules:
+  - ПРГ1
+  - ПРГ2
+  - ПРГ3
+  - ПРГ4
+  - ПРГ5
+  passport: v0.1
+- code: ФІЗ
+  slug: fiz
+  name: Фізика робота
+  track: fundament
+  modules:
+  - ФІЗ1
+  - ФІЗ2
+- code: МАТ
+  slug: mat
+  name: Математика для інженера
+  track: fundament
+  modules:
+  - МАТ1.1
+  - МАТ1.2
+  - МАТ1.3
+  - МАТ1.4
+  - МАТ2.1
+  - МАТ2.2
+  - МАТ2.3
+  - МАТ2.4
+- code: АЛГ
+  slug: alg
+  name: Алгоритми і структури даних
+  track: fundament
+  modules:
+  - АЛГ1
+  - АЛГ2
+  - АЛГ3
+  - АЛГ4
+- code: ЕЛ
+  slug: el
+  name: Електроніка
+  track: zalizo
+  modules:
+  - ЕЛ1.1
+  - ЕЛ1.2
+  - ЕЛ1.3
+  - ЕЛ1.4
+  - ЕЛ1.5
+  - ЕЛ2.1
+  - ЕЛ2.2
+  - ЕЛ2.3
+  - ЕЛ2.4
+- code: МДР
+  slug: mdr
+  name: Матеріали і друк
+  track: zalizo
+  modules:
+  - МДР1
+  - МДР2
+- code: CAD
+  slug: cad
+  name: CAD і виготовлення
+  track: zalizo
+  modules:
+  - CAD1
+  - CAD2
+  - CAD3
+- code: МЕХ
+  slug: mekh
+  name: Механіка і керування
+  track: zalizo
+  modules:
+  - МЕХ1
+  - МЕХ2
+  - МЕХ3
+  - МЕХ4
+  - МЕХ5
+- code: МХТ
+  slug: mkht
+  name: Мехатроніка
+  track: zalizo
+  modules:
+  - МХТ1
+  - МХТ2
+  - МХТ3
+- code: ЕМБ
+  slug: emb
+  name: Embedded
+  track: embedded
+  modules:
+  - ЕМБ1.1
+  - ЕМБ1.2
+  - ЕМБ1.3
+  - ЕМБ1.4
+  - ЕМБ2.1
+  - ЕМБ2.2
+  - ЕМБ2.3
+  - ЕМБ2.4
+- code: ROS
+  slug: ros
+  name: ROS 2
+  track: embedded
+  modules:
+  - ROS.1
+  - ROS.2
+  - ROS.3
+  - ROS.4
+- code: ML
+  slug: ml
+  name: Машинне навчання
+  track: shi
+  modules:
+  - ML1.1
+  - ML1.2
+  - ML1.3
+  - ML2.1
+  - ML2.2
+  - ML2.3
+  - ML2.4
+  - ML2.5
+- code: CV
+  slug: cv
+  name: Машинний зір
+  track: shi
+  modules:
+  - CV1
+  - CV2
+  - CV3
+  - CV4
+- code: LLM
+  slug: llm
+  name: LLM з нуля
+  track: shi
+  modules:
+  - LLM1
+  - LLM2
+  - LLM3

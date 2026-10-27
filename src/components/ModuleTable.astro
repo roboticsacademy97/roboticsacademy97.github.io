@@ -1,0 +1,67 @@
+---
+// Модулі курсу (або всіх курсів треку) з даних src/data/modules.yaml.
+// Звичайний вигляд — таблиця. detailed — картка на модуль з результатами, бейджем і екстерном:
+// ці поля довгі й заповнені лише там, де паспорт курсу вже написано.
+import { getProgram, type Module } from '../lib/program';
+import ModuleCode from './ModuleCode.astro';
+
+interface Props { course?: string; track?: string; detailed?: boolean }
+const { course, track, detailed = false } = Astro.props;
+const { courses, modulesOf } = await getProgram();
+const list: Module[] = courses
+  .filter((c) => (course ? c.slug === course : track ? c.track === track : true))
+  .flatMap(modulesOf);
+const year = (m: Module) => (m.when ? `${m.year} (${m.when})` : m.year);
+---
+{detailed ? (
+  <div class="ra-modules">
+    {list.map((m) => (
+      <section class="ra-module ra-chamfer" id={course ? m.slug : undefined}>
+        <p class="ra-module-head">
+          <span class="ra-code">{m.code}</span> <strong>{m.name}</strong>{m.topics && <>: {m.topics}</>}
+        </p>
+        <p class="ra-module-meta">
+          рік {year(m)} · {m.hours ?? '12–15'} год · пререквізити:{' '}
+          {m.prereqs.length ? m.prereqs.map((p, i) => <>{i > 0 && ', '}<ModuleCode code={p} /></>) : 'немає'}
+          {m.extern !== undefined && <> · екстерн: {m.extern ? 'так' : 'ні'}</>}
+          {m.who !== 'ядро' && <> · {m.who}</>}
+        </p>
+        {m.outcomes && <p><strong>Результати.</strong> {m.outcomes}</p>}
+        {m.badge && <p><strong>Бейдж.</strong> {m.badge}</p>}
+      </section>
+    ))}
+  </div>
+) : (
+  <div class="ra-table-wrap">
+    <table>
+      <thead>
+        <tr><th>Код</th><th>Модуль</th><th>Рік</th><th>Год</th><th>Пререквізити</th><th>Хто проходить</th></tr>
+      </thead>
+      <tbody>
+        {list.map((m) => (
+          <tr id={course ? m.slug : undefined}>
+            <td><span class="ra-code">{m.code}</span></td>
+            <td><strong>{m.name}</strong>{m.topics && <>: {m.topics}</>}</td>
+            <td class="ra-nowrap">{year(m)}</td>
+            <td class="ra-nowrap">{m.hours ?? '12–15'}</td>
+            <td>{m.prereqs.length ? m.prereqs.map((p, i) => <>{i > 0 && ', '}<ModuleCode code={p} /></>) : <span class="ra-empty">—</span>}</td>
+            <td>{m.who}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
+
+<style>
+  .ra-modules { display: grid; gap: 1rem; margin-block: 1.5rem; }
+  .ra-module {
+    padding: 1rem 1.25rem;
+    background: var(--sl-color-gray-6);
+    border-left: 4px solid var(--ra-signal);
+    scroll-margin-top: calc(var(--sl-nav-height) + 1rem);
+  }
+  .ra-module > p { margin: 0; }
+  .ra-module > p + p { margin-top: 0.5rem; }
+  .ra-module-meta { font-size: var(--sl-text-sm); color: var(--sl-color-gray-3); }
+</style>

@@ -1,0 +1,655 @@
+- code: БЕЗ
+  slug: bez
+  course: bez
+  name: Безпека в майстерні
+  topics: пайка, LiPo, електроінструмент, 3D-принтер
+  year: '0'
+  prereqs: []
+  hours: 8
+  who: ядро
+- code: ІНС1
+  slug: ins1
+  course: ins
+  name: Linux
+  topics: командний рядок, файлова система, SSH
+  year: '0'
+  prereqs: []
+  who: ядро
+- code: ІНС2
+  slug: ins2
+  course: ins
+  name: Git/GitHub, Markdown, вікі команди, технічне письмо
+  year: '0'
+  prereqs:
+  - ІНС1
+  who: ядро
+- code: ПРГ1
+  slug: prg1
+  course: prg
+  name: Python I
+  topics: змінні, умови, цикли, функції
+  year: '0'
+  prereqs: []
+  hours: 13
+  who: ядро
+  outcomes: пише програму з умовами, циклами і функціями за текстовою специфікацією; розбиває задачу на функції; читає traceback і знаходить помилку налагоджувачем
+  badge: '«Ровер на сітці»: функції, що виконують рядок команд F/L/R на полі N×M з перешкодами; проходить готовий набір тестів pytest'
+  extern: true
+- code: ПРГ2
+  slug: prg2
+  course: prg
+  name: Python II
+  topics: колекції, файли, модулі, numpy і matplotlib
+  year: '0'
+  prereqs:
+  - ПРГ1
+  hours: 14
+  who: ядро
+  outcomes: обирає між списком, словником і множиною й пояснює вибір; читає CSV і JSON та відсіює биті рядки з повідомленням; будує з numpy-масивів графік з одиницями і похибками; оформлює код як модуль
+    із власними тестами
+  badge: '«labkit»: модуль, що читає CSV вимірювань лабораторної ФІЗ, рахує середнє і розкид у кожній точці та зберігає графік із похибками; ≥5 власних тестів, README з прикладом'
+  extern: true
+- code: ПРГ3
+  slug: prg3
+  course: prg
+  name: C++ I
+  topics: типи, пам'ять, вказівники, компіляція
+  year: '1'
+  prereqs:
+  - ПРГ2
+  hours: 14
+  who: ядро
+  outcomes: збирає програму без попереджень і пояснює кроки збирання; передбачає переповнення і обирає тип фіксованої ширини; знаходить помилку пам'яті санітайзером або налагоджувачем; ставить, скидає і
+    перевіряє біти маскою
+  badge: '«Покази АЦП»: програма читає 12-бітні покази зі stdin, переводить у мілівольти цілою арифметикою, рахує min/max/середнє, пакує 8 прапорців стану в один байт; без попереджень із -Wall -Wextra,
+    чиста під санітайзерами, проходить тести stdin/stdout'
+  extern: false
+- code: ПРГ4
+  slug: prg4
+  course: prg
+  name: C++ II
+  topics: класи, бібліотеки, збирання проєкту
+  year: '1'
+  prereqs:
+  - ПРГ3
+  hours: 14
+  who: ядро
+  outcomes: проєктує клас із інваріантом і RAII; збирає бібліотеку і застосунок у CMake однією командою; пише тести doctest; перекладає клас із C++ на Python і навпаки
+  badge: '«Консоль команд робота»: бібліотека-парсер текстових команд («SET kp 1.5») з обробниками-лямбдами і помилками без винятків, термінальна оболонка, ≥8 тестів doctest, збирання CMake'
+  extern: false
+- code: ПРГ5
+  slug: prg5
+  course: prg
+  name: Rust для вбудованих систем
+  topics: власність і позичання, Result, Rust на ESP32
+  year: '3'
+  prereqs:
+  - ПРГ4
+  - ЕМБ1.2
+  who: за вибором, поза лімітом
+- code: ФІЗ1
+  slug: fiz1
+  course: fiz
+  name: Фізика робота I
+  topics: одиниці, вимірювання і похибки, оцінки Фермі, сила й момент
+  year: '0'
+  prereqs: []
+  who: ядро
+- code: ФІЗ2
+  slug: fiz2
+  course: fiz
+  name: Фізика робота II
+  topics: струм і напруга, схеми на макетці з Arduino, кожна з вимірюванням
+  year: '0'
+  prereqs:
+  - ФІЗ1
+  - БЕЗ
+  who: ядро
+- code: МАТ1.1
+  slug: mat1-1
+  course: mat
+  name: Дискретна математика
+  topics: логіка, множини, комбінаторика, системи числення
+  year: '0'
+  prereqs: []
+  who: ядро
+- code: МАТ1.2
+  slug: mat1-2
+  course: mat
+  name: Тригонометрія і вектори
+  year: '0'
+  prereqs: []
+  who: ядро
+- code: МАТ1.3
+  slug: mat1-3
+  course: mat
+  name: Матриці як перетворення
+  year: '1'
+  prereqs:
+  - МАТ1.2
+  who: ядро
+- code: МАТ1.4
+  slug: mat1-4
+  course: mat
+  name: Описова статистика і базова ймовірність
+  year: '0'
+  prereqs:
+  - МАТ1.1
+  who: ядро
+- code: МАТ2.1
+  slug: mat2-1
+  course: mat
+  name: Похідні й градієнт
+  year: '2'
+  prereqs:
+  - МАТ1.2
+  who: ядро
+- code: МАТ2.2
+  slug: mat2-2
+  course: mat
+  name: Лінійна алгебра
+  topics: системи, базиси, власні вектори
+  year: '2'
+  prereqs:
+  - МАТ1.3
+  who: ядро
+- code: МАТ2.3
+  slug: mat2-3
+  course: mat
+  name: Ймовірність і розподіли
+  year: '2'
+  prereqs:
+  - МАТ1.4
+  - МАТ2.1
+  who: ядро
+- code: МАТ2.4
+  slug: mat2-4
+  course: mat
+  name: Чисельні методи
+  topics: інтегрування руху, оптимізація
+  year: '2'
+  prereqs:
+  - МАТ2.1
+  - ПРГ2
+  who: ядро
+- code: АЛГ1
+  slug: alg1
+  course: alg
+  name: Складність і сортування
+  year: '1'
+  prereqs:
+  - ПРГ2
+  who: ядро
+- code: АЛГ2
+  slug: alg2
+  course: alg
+  name: Структури даних
+  topics: стек, черга, купа, хеш-таблиця
+  year: '1'
+  prereqs:
+  - АЛГ1
+  who: ядро
+- code: АЛГ3
+  slug: alg3
+  course: alg
+  name: Графи
+  topics: BFS, DFS, Дейкстра, A*
+  year: '2'
+  prereqs:
+  - АЛГ2
+  who: ядро
+- code: АЛГ4
+  slug: alg4
+  course: alg
+  name: Динамічне програмування
+  year: '2'
+  prereqs:
+  - АЛГ2
+  who: ядро
+- code: ЕЛ1.1
+  slug: el1-1
+  course: el
+  name: Електричні кола
+  topics: заряд, струм, Кірхгоф, ємність, мультиметр
+  year: '0'
+  when: кінець
+  prereqs:
+  - ФІЗ2
+  who: ядро
+- code: ЕЛ1.2
+  slug: el1-2
+  course: el
+  name: Енергія
+  topics: потужність і нагрів, акумулятори, двигуни й проти-ЕРС
+  year: '1'
+  prereqs:
+  - ЕЛ1.1
+  who: ядро
+- code: ЕЛ1.3
+  slug: el1-3
+  course: el
+  name: Транзистори, ШІМ, драйвери, індуктивне навантаження
+  year: '1'
+  prereqs:
+  - ЕЛ1.2
+  who: 'шлях: Електронік'
+- code: ЕЛ1.4
+  slug: el1-4
+  course: el
+  name: RC і RLC, коливання, осцилограф
+  year: '1'
+  prereqs:
+  - ЕЛ1.1
+  - МАТ1.2
+  who: 'шлях: Електронік'
+- code: ЕЛ1.5
+  slug: el1-5
+  course: el
+  name: Датчики
+  topics: звук, ультразвук, ІЧ, ланцюжок до АЦП
+  year: '1'
+  prereqs:
+  - ЕЛ1.4
+  who: 'шлях: Електронік'
+- code: МДР1
+  slug: mdr1
+  course: mdr
+  name: 3D-друк
+  topics: принтер, слайсер, калібрування, пластики (PLA, PETG, TPU), постобробка
+  year: '0'
+  when: кінець
+  prereqs:
+  - БЕЗ
+  who: усі ролі
+- code: МДР2
+  slug: mdr2
+  course: mdr
+  name: Матеріалознавство
+  topics: властивості і вибір матеріалу, статика і міцність, випробування на розтяг і згин
+  year: '2'
+  prereqs:
+  - CAD3
+  - ФІЗ1
+  - МДР1
+  who: 'шлях: Механік'
+- code: CAD1
+  slug: cad1
+  course: cad
+  name: FreeCAD
+  topics: ескіз, деталь, креслення
+  year: '1'
+  prereqs:
+  - МАТ1.2
+  who: 'шлях: Механік; вступ: усі інші'
+- code: CAD2
+  slug: cad2
+  course: cad
+  name: Проєктування під виготовлення
+  topics: допуски друку, орієнтація, кріплення
+  year: '1'
+  prereqs:
+  - CAD1
+  - МДР1
+  who: 'шлях: Механік; вступ: Електронік'
+- code: CAD3
+  slug: cad3
+  course: cad
+  name: Складання, допуски і посадки
+  year: '1'
+  prereqs:
+  - CAD2
+  who: 'шлях: Механік'
+- code: МЕХ1
+  slug: mekh1
+  course: mekh
+  name: Кінематика і динаміка, закони Ньютона, тертя
+  year: '1'
+  prereqs:
+  - ФІЗ1
+  - МАТ1.2
+  who: ядро
+- code: МЕХ2
+  slug: mekh2
+  course: mekh
+  name: Обертання, момент інерції, редуктори, вибір двигуна
+  year: '2'
+  prereqs:
+  - МЕХ1
+  - ЕЛ1.2
+  who: 'шлях: Механік'
+- code: МЕХ3
+  slug: mekh3
+  course: mekh
+  name: PID-регулятор
+  year: '2'
+  prereqs:
+  - МЕХ2
+  - МАТ2.1
+  - ПРГ2
+  who: 'шлях: Механік'
+- code: МЕХ4
+  slug: mekh4
+  course: mekh
+  name: Фільтри
+  topics: комплементарний, Калман на рівні інтуїції
+  year: '2'
+  prereqs:
+  - МЕХ3
+  - МАТ1.4
+  who: 'шлях: Механік'
+- code: МЕХ5
+  slug: mekh5
+  course: mekh
+  name: Маніпулятор
+  topics: пряма й обернена кінематика
+  year: '3'
+  prereqs:
+  - МЕХ3
+  - МАТ1.3
+  - CAD3
+  who: 'шлях: Механік'
+- code: ЕЛ2.1
+  slug: el2-1
+  course: el
+  name: KiCad
+  topics: схема і друкована плата
+  year: '3'
+  prereqs:
+  - ЕЛ1.5
+  - ЕМБ1.3
+  who: 'шлях: Електронік'
+- code: ЕЛ2.2
+  slug: el2-2
+  course: el
+  name: Живлення і силова частина, тепловідвід
+  year: '3'
+  prereqs:
+  - ЕЛ2.1
+  - ЕЛ1.3
+  who: 'шлях: Електронік'
+- code: ЕЛ2.3
+  slug: el2-3
+  course: el
+  name: Драйвери двигунів і EMC на практиці
+  year: '3'
+  prereqs:
+  - ЕЛ2.2
+  who: 'шлях: Електронік'
+- code: ЕЛ2.4
+  slug: el2-4
+  course: el
+  name: Замовлення, монтаж і налагодження плати
+  year: '3'
+  prereqs:
+  - ЕЛ2.3
+  who: 'шлях: Електронік'
+- code: МХТ1
+  slug: mkht1
+  course: mkht
+  name: ТЗ і розрахунок приводу
+  year: '3'
+  prereqs:
+  - МЕХ2
+  - МДР2
+  who: 'шлях: Механік'
+- code: МХТ2
+  slug: mkht2
+  course: mkht
+  name: Конструювання вузла
+  topics: CAD-складання і креслення
+  year: '3'
+  prereqs:
+  - МХТ1
+  who: 'шлях: Механік'
+- code: МХТ3
+  slug: mkht3
+  course: mkht
+  name: Виготовлення і випробування вузла
+  year: '3'
+  prereqs:
+  - МХТ2
+  - МЕХ3
+  who: 'шлях: Механік'
+- code: ЕМБ1.1
+  slug: emb1-1
+  course: emb
+  name: ESP32 і PlatformIO
+  topics: GPIO, цифровий ввід-вивід
+  year: '1'
+  prereqs:
+  - ПРГ3
+  - ЕЛ1.1
+  who: 'шлях: Програміст ВС, Електронік; вступ: Механік, Інженер ШІ'
+- code: ЕМБ1.2
+  slug: emb1-2
+  course: emb
+  name: АЦП, ШІМ, таймери, переривання
+  year: '1'
+  prereqs:
+  - ЕМБ1.1
+  who: як ЕМБ1.1
+- code: ЕМБ1.3
+  slug: emb1-3
+  course: emb
+  name: Шини UART, I2C, SPI; робота з датчиками
+  year: '1'
+  prereqs:
+  - ЕМБ1.2
+  - ПРГ4
+  who: 'шлях: Програміст ВС, Електронік'
+- code: ЕМБ1.4
+  slug: emb1-4
+  course: emb
+  name: Архітектура прошивки
+  topics: скінченні автомати (робот по лінії)
+  year: '2'
+  prereqs:
+  - ЕМБ1.3
+  who: 'шлях: Програміст ВС, Електронік'
+- code: ЕМБ2.1
+  slug: emb2-1
+  course: emb
+  name: FreeRTOS
+  topics: задачі, черги, синхронізація
+  year: '2'
+  prereqs:
+  - ЕМБ1.4
+  who: 'шлях: Програміст ВС'
+- code: ЕМБ2.2
+  slug: emb2-2
+  course: emb
+  name: Wi-Fi і MQTT
+  year: '2'
+  prereqs:
+  - ЕМБ2.1
+  who: 'шлях: Програміст ВС'
+- code: ЕМБ2.3
+  slug: emb2-3
+  course: emb
+  name: Linux на мікрокомп'ютері
+  topics: сервіси, systemd, крос-компіляція
+  year: '2'
+  prereqs:
+  - ЕМБ1.4
+  - ІНС2
+  who: 'шлях: Програміст ВС'
+- code: ЕМБ2.4
+  slug: emb2-4
+  course: emb
+  name: Зв'язок МК ↔ Linux
+  topics: протокол, телеметрія
+  year: '2'
+  prereqs:
+  - ЕМБ2.2
+  - ЕМБ2.3
+  who: 'шлях: Програміст ВС'
+- code: ROS.1
+  slug: ros1
+  course: ros
+  name: Вузли, топіки, сервіси, launch
+  year: '3'
+  prereqs:
+  - ЕМБ2.3
+  - ПРГ4
+  who: 'шлях: Програміст ВС'
+- code: ROS.2
+  slug: ros2
+  course: ros
+  name: TF, URDF, системи координат
+  year: '3'
+  prereqs:
+  - ROS.1
+  - МАТ2.2
+  who: 'шлях: Програміст ВС'
+- code: ROS.3
+  slug: ros3
+  course: ros
+  name: Симуляція
+  year: '3'
+  prereqs:
+  - ROS.2
+  who: 'шлях: Програміст ВС'
+- code: ROS.4
+  slug: ros4
+  course: ros
+  name: Навігація і SLAM
+  year: '3'
+  prereqs:
+  - ROS.3
+  - АЛГ3
+  who: 'шлях: Програміст ВС'
+- code: ML1.1
+  slug: ml1-1
+  course: ml
+  name: Дані
+  topics: pandas, візуалізація, очищення
+  year: '1'
+  prereqs:
+  - ПРГ2
+  - МАТ1.4
+  who: 'шлях: Інженер ШІ; вступ: усі інші'
+- code: ML1.2
+  slug: ml1-2
+  course: ml
+  name: Регресія і класифікація, метрики (scikit-learn)
+  year: '1'
+  prereqs:
+  - ML1.1
+  who: як ML1.1
+- code: ML1.3
+  slug: ml1-3
+  course: ml
+  name: Дерева, ансамблі, кластеризація, перенавчання; етика і приватність даних
+  year: '1'
+  prereqs:
+  - ML1.2
+  who: 'шлях: Інженер ШІ'
+- code: ML2.1
+  slug: ml2-1
+  course: ml
+  name: Градієнтний спуск і backpropagation власноруч
+  year: '2'
+  prereqs:
+  - ML1.3
+  - МАТ2.1
+  who: 'шлях: Інженер ШІ'
+- code: ML2.2
+  slug: ml2-2
+  course: ml
+  name: PyTorch
+  topics: повнозв'язні мережі, навчання в Colab
+  year: '2'
+  prereqs:
+  - ML2.1
+  - ПРГ4
+  who: 'шлях: Інженер ШІ'
+- code: ML2.3
+  slug: ml2-3
+  course: ml
+  name: Згорткові мережі (CNN)
+  year: '2'
+  prereqs:
+  - ML2.2
+  - МАТ1.3
+  who: 'шлях: Інженер ШІ'
+- code: ML2.4
+  slug: ml2-4
+  course: ml
+  name: Основи навчання з підкріпленням (RL)
+  year: '3'
+  prereqs:
+  - ML2.2
+  - МАТ2.3
+  who: 'шлях: Інженер ШІ'
+- code: ML2.5
+  slug: ml2-5
+  course: ml
+  name: TinyML
+  topics: модель на мікроконтролері, квантизація int8
+  year: '3'
+  prereqs:
+  - ML2.3
+  - ЕМБ1.2
+  who: 'шлях: Інженер ШІ'
+- code: CV1
+  slug: cv1
+  course: cv
+  name: Камера й оптика, класичний OpenCV
+  year: '2'
+  prereqs:
+  - МАТ1.3
+  - ПРГ2
+  who: 'шлях: Інженер ШІ'
+- code: CV2
+  slug: cv2
+  course: cv
+  name: Калібрування камери, колір, контури, трекінг
+  year: '3'
+  prereqs:
+  - CV1
+  who: 'шлях: Інженер ШІ'
+- code: CV3
+  slug: cv3
+  course: cv
+  name: Детекція об'єктів
+  topics: датасет, розмітка, навчання
+  year: '3'
+  prereqs:
+  - CV2
+  - ML2.3
+  who: 'шлях: Інженер ШІ'
+- code: CV4
+  slug: cv4
+  course: cv
+  name: Розгортання на NPU
+  year: '3'
+  prereqs:
+  - CV3
+  - ML2.5
+  - ІНС2
+  who: 'шлях: Інженер ШІ'
+- code: LLM1
+  slug: llm1
+  course: llm
+  name: Токенізація і n-грамні моделі
+  year: 2–3
+  prereqs:
+  - ML2.2
+  who: за вибором
+- code: LLM2
+  slug: llm2
+  course: llm
+  name: Attention і малий трансформер
+  year: '3'
+  prereqs:
+  - LLM1
+  who: за вибором
+- code: LLM3
+  slug: llm3
+  course: llm
+  name: Мовна модель на edge-пристрої
+  year: '3'
+  prereqs:
+  - LLM2
+  - ML2.5
+  who: за вибором

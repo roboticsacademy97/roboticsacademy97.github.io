@@ -1,0 +1,40 @@
+---
+// Сторінка курсу, для якого паспорт ще не написано: модулі з Карти і зв'язки з іншими курсами.
+// Курс із паспортом має власну сторінку в src/content/docs/kursy/<slug>/ і тут не генерується.
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Aside } from '@astrojs/starlight/components';
+import ModuleTable from '../../components/ModuleTable.astro';
+import ModuleCode from '../../components/ModuleCode.astro';
+import { getProgram, TRACKS, type Course } from '../../lib/program';
+
+export async function getStaticPaths() {
+  const { courses } = await getProgram();
+  return courses.filter((c) => !c.passport).map((course) => ({ params: { course: course.slug }, props: { course } }));
+}
+
+const { course } = Astro.props as { course: Course };
+const { modulesOf, opens } = await getProgram();
+const mods = modulesOf(course);
+const outside = [...new Set(mods.flatMap(opens).filter((m) => m.course !== course.slug).map((m) => m.code))];
+const track = TRACKS[course.track];
+---
+<StarlightPage
+  frontmatter={{ title: `${course.name} · ${course.code}`, description: `Курс академії RA97, трек ${track.name}: модулі, пререквізити і місце в програмі.` }}
+  headings={[
+    { depth: 2, slug: 'moduli', text: 'Модулі' },
+    ...(outside.length ? [{ depth: 2, slug: 'vidkryvaie', text: 'Що відкриває курс' }] : []),
+  ]}
+>
+  <p>Трек {track.number} {track.name} · модулів: {mods.length}.</p>
+  <Aside type="caution" title="Паспорт курсу ще пишеться">
+    Нижче — модулі курсу з Карти програми. Матеріали, задачі й критерії бейджів з’являться разом із паспортом.
+  </Aside>
+  <h2 id="moduli">Модулі</h2>
+  <ModuleTable course={course.slug} />
+  {outside.length > 0 && (
+    <>
+      <h2 id="vidkryvaie">Що відкриває курс</h2>
+      <p>Бейджі цього курсу є пререквізитами для {outside.map((c, i) => <>{i > 0 && ', '}<ModuleCode code={c} /></>)}.</p>
+    </>
+  )}
+</StarlightPage>

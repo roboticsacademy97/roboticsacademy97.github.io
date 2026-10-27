@@ -1,0 +1,39 @@
+---
+title: "Академія робототехніки 97"
+description: "Robotics Academy 97 · Lyceum No. 97, Dnipro — позаурочна інженерна програма ліцею № 97 (Дніпро) з робототехніки, вбудованих систем і периферійного ШІ."
+template: splash
+hero:
+  title: "Від фундаменту до реальних задач"
+  tagline: "Robotics Academy 97 · Lyceum No. 97, Dnipro. Позаурочна інженерна програма ліцею: учні розраховують, проєктують, виготовляють, програмують і захищають роботів із периферійним ШІ."
+  image:
+    alt: "Знак RA97"
+    light: ../../assets/brand/ra97-mark.svg
+    dark: ../../assets/brand/ra97-mark-on-dark.svg
+  actions:
+    - text: Карта програми
+      link: /programa/
+      icon: right-arrow
+    - text: Вступ і діагностика
+      link: /vstup/
+      variant: minimal
+---
+
+import TrackCards from '../../components/TrackCards.astro';
+import { CardGrid, Card } from '@astrojs/starlight/components';
+
+<TrackCards />
+
+<CardGrid>
+  <Card title="Модулі й бейджі" icon="approve-check">
+    Програма складається з модулів по 12–15 годин. Бейдж за модуль — міні-проєкт і короткий усний захист. Бейдж відкриває наступні модулі дерева навичок.
+  </Card>
+  <Card title="Самостійно за матеріалами" icon="open-book">
+    2–3 години на тиждень з учителем і стільки ж самостійно. Матеріали кожного модуля — тут, на сайті, з критеріями бейджа і запитаннями до захисту.
+  </Card>
+  <Card title="Вступ з 9 класу" icon="star">
+    Рік 0 — у 9 класі. Хто приходить пізніше, закриває бейджі року 0, частину — екстерном. Нинішні 10-класники проходять діагностику в листопаді 2026: [деталі](/vstup/).
+  </Card>
+  <Card title="Рік 3 — Проєктна студія" icon="rocket">
+    Реальні задачі із замовником: ліцей, місто, МАН, змагання. Флагманський проєкт — рятувальний робот у форматі RoboCup Rescue RMRC.
+  </Card>
+</CardGrid>

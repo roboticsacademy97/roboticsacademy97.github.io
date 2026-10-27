@@ -1,0 +1,12 @@
+---
+// Код модуля як посилання на його розділ на сторінці курсу.
+import { getProgram, moduleHref } from '../lib/program';
+
+interface Props { code: string | null | undefined }
+const { code } = Astro.props;
+const { byCode } = await getProgram();
+const m = code ? byCode.get(code) : undefined;
+---
+{m ? <a class="ra-code" href={moduleHref(m)} title={m.name}>{m.code}</a>
+   : code ? <span class="ra-code">{code}</span>
+   : <span class="ra-empty">—</span>}

@@ -1,0 +1,55 @@
+---
+// Чотири картки треків у стилі борду RA97: номер, назва, курси треку.
+import { getProgram, TRACKS } from '../lib/program';
+
+const { courses } = await getProgram();
+---
+<div class="ra-tracks not-content">
+  {Object.entries(TRACKS).map(([key, t]) => (
+    <a class="ra-track ra-chamfer" href={`/kursy/#${t.number}-${t.name.toLowerCase()}`}>
+      <span class="ra-track-number">{t.number}</span>
+      <span class="ra-track-name">{t.name}</span>
+      <span class="ra-track-courses">
+        {courses.filter((c) => c.track === key).map((c) => c.name).join(' · ')}
+      </span>
+    </a>
+  ))}
+</div>
+
+<style>
+  .ra-tracks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+    margin-block: 2rem;
+  }
+  .ra-track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem 1.25rem 1.5rem;
+    background: var(--ra-graphite);
+    color: #F3F1EE;
+    text-decoration: none;
+    overflow: hidden;
+    border: 1px solid transparent;
+  }
+  /* У темній темі графітова картка зливається з фоном — додаємо рамку */
+  :global(:root:not([data-theme='light'])) .ra-track { border-color: var(--sl-color-gray-5); }
+  /* Шеврон борду: діагональні смуги в правому нижньому куті */
+  .ra-track::after {
+    content: '';
+    position: absolute;
+    inset: auto -1rem -1rem auto;
+    width: 6rem;
+    height: 6rem;
+    background: repeating-linear-gradient(135deg, var(--ra-signal) 0 6px, transparent 6px 14px);
+    opacity: 0.35;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+  .ra-track:hover, .ra-track:focus-visible { outline: 2px solid var(--ra-signal); outline-offset: 2px; }
+  .ra-track-number { font-family: var(--ra-font-display); font-size: 2.25rem; line-height: 1; color: var(--ra-signal); }
+  .ra-track-name { font-family: var(--ra-font-display); font-size: 1.35rem; }
+  .ra-track-courses { font-size: var(--sl-text-sm); color: #C9C3BC; max-width: 85%; }
+</style>
