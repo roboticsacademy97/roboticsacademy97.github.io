@@ -37,15 +37,15 @@ const { courses } = await getProgram();
   }
   /* У темній темі графітова картка зливається з фоном — додаємо рамку */
   :global(:root:not([data-theme='light'])) .ra-track { border-color: var(--sl-color-gray-5); }
-  /* Шеврон борду: діагональні смуги в правому нижньому куті */
+  /* Кутик: один суцільний трикутник сигнального кольору в правому нижньому куті */
   .ra-track::after {
     content: '';
     position: absolute;
-    inset: auto -1rem -1rem auto;
-    width: 6rem;
-    height: 6rem;
-    background: repeating-linear-gradient(135deg, var(--ra-signal) 0 6px, transparent 6px 14px);
-    opacity: 0.35;
+    right: 0;
+    bottom: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    background: var(--ra-signal);
     clip-path: polygon(100% 0, 100% 100%, 0 100%);
   }
   .ra-track:hover, .ra-track:focus-visible { outline: 2px solid var(--ra-signal); outline-offset: 2px; }
