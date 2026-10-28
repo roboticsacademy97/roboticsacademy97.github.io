@@ -1,0 +1,11 @@
+{
+  // На ПРГ1 ШІ-помічники вимкнені: синтаксис має пройти через руки.
+  "chat.disableAIFeatures": true,
+  "github.copilot.enable": { "*": false },
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  }
+}

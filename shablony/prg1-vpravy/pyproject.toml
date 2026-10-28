@@ -1,0 +1,28 @@
+[project]
+name = "prg1-vpravy"
+version = "2026.11"
+description = "Вправи модуля ПРГ1 (Python I) Академії робототехніки 97"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+# Помилки в u1_traceback.py навмисні: їх шукають за traceback, а не за ruff.
+extend-exclude = ["u1_traceback.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "B", "UP"]
