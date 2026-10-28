@@ -61,3 +61,13 @@ h1, h2, h3, .site-title, .ra-display {
   border-color: var(--ra-signal);
   color: var(--ra-graphite);
 }
+
+/* Друк: картка допусків, пам'ятка, звіти — лише вміст сторінки, без меню й навігації */
+@media print {
+  header.header, .sidebar-pane, .right-sidebar-container, mobile-starlight-toc, .pagination-links,
+  .sl-skip-link, footer, starlight-theme-select, .meta { display: none !important; }
+  .main-frame { padding: 0 !important; }
+  .content-panel { padding: 0 !important; border: 0 !important; }
+  .sl-markdown-content table { font-size: 10pt; }
+  .sl-markdown-content td, .sl-markdown-content th { border: 1px solid #1F1E1D; padding: 0.4em; }
+}

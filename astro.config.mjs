@@ -47,6 +47,16 @@ export default defineConfig({
             { label: 'Пілотний набір 2026', link: '/programa/pilot/' },
           ],
         },
+        {
+          // Навчальні матеріали модулів: уроки, завдання, бейджі. Порядок — як у пілотному наборі.
+          label: 'Матеріали',
+          items: [
+            { label: 'БЕЗ · Безпека в майстерні', collapsed: true, items: [{ autogenerate: { directory: 'kursy/bez' } }] },
+            { label: 'ФІЗ-експрес', collapsed: true, items: [{ autogenerate: { directory: 'kursy/fiz/ekspres' } }] },
+            { label: 'ІНС-експрес', collapsed: true, items: [{ autogenerate: { directory: 'kursy/ins/ekspres' } }] },
+            { label: 'ПРГ1 · Python I', collapsed: true, items: [{ autogenerate: { directory: 'kursy/prg/prg1' } }] },
+          ],
+        },
         { label: 'Курси', items: [{ label: 'Усі курси', link: '/kursy/' }, ...courseGroups] },
       ],
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
