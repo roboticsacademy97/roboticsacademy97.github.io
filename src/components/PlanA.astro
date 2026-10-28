@@ -1,10 +1,11 @@
 ---
-// Повний шлях (варіант А): part="common" — рік 0 і слот Ф для всіх, part="roles" — слот Т кожної ролі.
+// Повний шлях (варіант А): part="common" — рік 0 і слот Ф для всіх, part="roles" — слот Т кожної ролі,
+// part="year0" — лише рік 0 (для сторінки набору).
 import { parse } from 'yaml';
 import planText from '../data/plan-a.yaml?raw';
 import ModuleCode from './ModuleCode.astro';
 
-interface Props { part: 'common' | 'roles' }
+interface Props { part: 'common' | 'roles' | 'year0' }
 const { part } = Astro.props;
 
 type Row = (string | null)[];
@@ -24,7 +25,12 @@ const common: [string, Row][] = [
 const roles: [string, Row][] = Object.values(plan.roles).flatMap((r) =>
   [1, 2, 3].map((y) => [`${r.name} · ${y}`, r.years[y]] as [string, Row]),
 );
-const [corner, rows] = part === 'common' ? ['Рік · слот', common] : ['Роль · рік', roles];
+const year0: [string, Row][] = [
+  ['Слот 1', plan.year0.first],
+  ['Слот 2', plan.year0.second],
+];
+const [corner, rows] =
+  part === 'common' ? ['Рік · слот', common] : part === 'year0' ? ['Рік 0', year0] : ['Роль · рік', roles];
 ---
 <div class="ra-table-wrap">
   <table>
