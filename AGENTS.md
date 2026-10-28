@@ -49,9 +49,14 @@ npm run check:program  # лише перевірка програми
 ```
 src/content/docs/index.mdx        головна
 src/content/docs/pro.md           про академію (стисла Концепція)
-src/content/docs/vstup.md         вступ, екстерн, діагностика
+src/content/docs/vstup/           вступ і екстерн (index.md), діагностика пілотного набору 2026 (diahnostyka.md)
+src/content/docs/polozhennia.md   Положення про бейджі: рубрика 0–4, перездача, ШІ, екстерн, реєстр
 src/content/docs/programa/        Карта (index.mdx), пілотний набір 2026 (pilot.md), резерв: набір 2027/28 (nabir-2027.mdx, поза меню)
 src/content/docs/kursy/<slug>/    паспорт курсу; без цієї теки сторінку курсу генерує src/pages/kursy/[course].astro
+src/content/docs/kursy/prg/rover-na-sitci.md   умова бейджа ПРГ1
+shablony/<name>/                  шаблони завдань для учнів (uv-проєкт із тестами); збірка віддає їх як /shablony/<name>.zip
 ```
+
+Шаблон завдання — це те, що бачить учень: заготовки і публічні тести. Еталонний розв'язок і тести-еталони викладача в репозиторій не кладемо (правило 5). Перед PR перевір шаблон: `uv run pytest` на заготовці падає лише в обов'язковому рівні, а `uv run ruff check .` чистий.
 
 Коли пишеться паспорт курсу: створи `src/content/docs/kursy/<slug>/index.mdx`, додай `passport: v0.1` курсу в `courses.yaml`, а результати й бейджі модулів — у `modules.yaml`.

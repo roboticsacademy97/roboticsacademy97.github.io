@@ -39,7 +39,14 @@ export default defineConfig({
       ],
       sidebar: [
         { label: 'Про академію', link: '/pro/' },
-        { label: 'Вступ і діагностика', link: '/vstup/' },
+        {
+          label: 'Вступ',
+          items: [
+            { label: 'Вступ і екстерн', link: '/vstup/' },
+            { label: 'Діагностика 2026', link: '/vstup/diahnostyka/' },
+            { label: 'Положення про бейджі', link: '/polozhennia/' },
+          ],
+        },
         {
           label: 'Програма',
           items: [
