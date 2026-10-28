@@ -413,7 +413,7 @@
 - code: ЕМБ1.1
   slug: emb1-1
   course: emb
-  name: ESP32 і PlatformIO
+  name: ESP32 і ESP-IDF
   topics: GPIO, цифровий ввід-вивід
   year: '1'
   prereqs:
