@@ -4,6 +4,7 @@
   track: fundament
   modules:
   - БЕЗ
+  passport: v0.1
 - code: ІНС
   slug: ins
   name: Інструменти інженера
