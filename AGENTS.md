@@ -50,7 +50,7 @@ npm run check:program  # лише перевірка програми
 src/content/docs/index.mdx        головна
 src/content/docs/pro.md           про академію (стисла Концепція)
 src/content/docs/vstup.md         вступ, екстерн, діагностика
-src/content/docs/programa/        Карта (index.mdx) і пілотний набір 2026 (pilot.md)
+src/content/docs/programa/        Карта (index.mdx), пілотний набір 2026 (pilot.md), резерв: набір 2027/28 (nabir-2027.mdx, поза меню)
 src/content/docs/kursy/<slug>/    паспорт курсу; без цієї теки сторінку курсу генерує src/pages/kursy/[course].astro
 ```
 
